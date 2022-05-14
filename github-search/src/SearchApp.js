@@ -1,62 +1,83 @@
 import styled from "styled-components";
-import sun from "./images/icon-sun.svg";
-import moon from "./images/icon-moon.svg";
+import Sun from "./images/icon-sun.svg";
+import Moon from "./images/icon-moon.svg";
+import Search from "./SearchButton";
+import Data from "./SearchData";
+import { createGlobalStyle } from 'styled-components';
 
-function Search(Props) {
-    function changeTheme() {
-        if (Props.theme === "light") {
-            Props.setTheme("dark");
-        } else {
-            Props.setTheme("light");
-        }
-    };
-
-    const Toggle = styled.button`
-        cursor: pointer;
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        border: none;
-        background-color: ${Props => Props.theme.pageBackground};
-        transition: all .5s ease;
-    `;
-
-    const Page = styled.div`
-        background-color: ${Props => Props.theme.pageBackground};
-        transition: all .5s ease;
-        height: 100vh;
-        width: 100%;
-    `;
-
+    const GlobalStyle = createGlobalStyle`
+      body {
+        background: ${Props => Props.theme.pageBackground};
+        transition: all 0.5s ease;
+        font-family: 'Space Mono', monospace;
+        padding: 5%;
+  }
+`
     const Container = styled.div`
-        display: grid;
-    
-        
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
     `;
 
     const Title = styled.h1`
         color: ${Props => Props.theme.titleColor};
-        transition: all .5s ease;
+        font-size: xx-large;
+        transition: all 0.5s ease;
+        
     `;
 
+    const Toggle = styled.button`
+        margin-top: 8%;
+        margin-left: 1%;
+        cursor: pointer;
+        border-radius: 50%;
+        border: none;
+        background-color: ${Props => Props.theme.pageBackground};
+        &:focus {
+        outline: none;
+        transition: all 0.5s ease;
 
+        
+        }
+    `;
 
+    const Label = styled.label`
+        font-size: small;
+        color: ${Props => Props.theme.titleColor};
+        letter-spacing: 2px;
+        margin-top: 14%;
+        margin-left: 24%;
+        transition: all 0.5s ease;
+    `;
 
-    const icon = Props.theme === "light" ? <img src={moon} alt="moon-icon"/> : <img src= {sun} alt="sun-icon"/>; 
+    function Switch(Props) {
+        function changeTheme() {
+            if (Props.theme === "light") {
+                Props.setTheme("dark");
+            } else {
+                Props.setTheme("light");
+            }
+        };
+
+    const icon = Props.theme === "light" ? <img src={Moon} /> : <img src={Sun} />;
 
     return (
-        <Page>
+
             <Container>
+                <GlobalStyle />
                 <Title>
                     devfinder
-                    <Toggle onClick={changeTheme}>
-                        {icon}
-                    </Toggle>
                 </Title>
-                
+                <Label>
+                    {Props.theme === "light" ? "DARK" : "LIGHT"}
+                </Label>
+                <Toggle onClick={changeTheme}>
+                    {icon}
+                </Toggle>
+                <Search />
+                <Data />
             </Container>
-        </Page>
     );
 };
 
-export default Search;
+export default Switch;
