@@ -1,10 +1,13 @@
 {
   "files": {
-    "main.js": "/React-Github-User-Search-App/static/js/main.42bc1b04.js",
+    "main.js": "/React-Github-User-Search-App/static/js/main.a86f2166.js",
+    "static/media/icon-sun.svg": "/React-Github-User-Search-App/static/media/icon-sun.293dc28fe4fa4653c16487894c89363d.svg",
     "index.html": "/React-Github-User-Search-App/index.html",
-    "main.42bc1b04.js.map": "/React-Github-User-Search-App/static/js/main.42bc1b04.js.map"
+    "static/media/icon-moon.svg": "/React-Github-User-Search-App/static/media/icon-moon.cce754cec46d095fd3ce12737f38694b.svg",
+    "static/media/icon-search.svg": "/React-Github-User-Search-App/static/media/icon-search.0cc0c98424cc75d5e1dfbb9e3abb6785.svg",
+    "main.a86f2166.js.map": "/React-Github-User-Search-App/static/js/main.a86f2166.js.map"
   },
   "entrypoints": [
-    "static/js/main.42bc1b04.js"
+    "static/js/main.a86f2166.js"
   ]
 }
