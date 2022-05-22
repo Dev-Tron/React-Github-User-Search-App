@@ -1,37 +1,217 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import dayjs from "dayjs";
+import img1 from './images/icon-search.svg';
+import loco from "./images/icon-location.svg";
+import web from "./images/icon-website.svg";
+import comp from "./images/icon-company.svg";
+import twitterIcon from "./images/icon-twitter.svg";
 
+    const Container = styled.main`
+      width: 100%;
+      height: auto;
+    `
 
     const Card = styled.div`
       background-color: ${Props => Props.theme.boxColor};
-    `;
+      margin-top: 5%;
+      border-radius: 10px;
+      padding: 6% 6% 12% 6%;
+    `
 
+    const GitForm = styled.form`
+    
+    `
+
+    const ButtonWrapper = styled.div`
+      margin-top: 7%;
+      background-color: ${Props => Props.theme.boxColor};
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      padding: 6px;
+      justify-content: space-between;
+      transition: all 0.5s ease;
+    `
+
+    const UserInput = styled.input`
+      flex: .9;
+      border: none;
+      background-color: ${Props => Props.theme.boxColor};
+      transition: all 0.5s ease;
+      ::placeholder,
+      ::-webkit-input-placeholder {
+      color: ${Props => Props.theme.tagLineColor};
+      }
+    `
+
+     const SearchIcon = styled.img`
+      width: 20px;
+      height: auto;
+      margin-left: 3%;
+    `
+
+    const Press = styled.button`
+      width: 30%;
+      height: auto;
+      padding: 5%;
+      background-color: #0079FF;
+      border-radius: 10px;
+      color: white;
+      border: none;
+    `
+    
     const Wrapper1 = styled.div`
-      display: grid;
-    `;
+      display: flex;
+      gap: 5%;
+    `
+
+    const SmallWrap = styled.div`
+      display: flex;
+      flex-direction: column;
+    `
 
     const Avatar = styled.img`
-      width: 30px;
-      height: auto;
-    `;
+      width: 25%;
+      height: 18%;
+      border-radius: 50%;
+      margin: 5% 0 0 0;
+    `
 
     const Name = styled.h1`
       font-size: large;
-    `;
+      color: ${Props => Props.theme.titleColor};
+      transition: all 0.5s ease;
+      margin-bottom: 0;
+    `
 
-    const User = styled.p`
+    const User = styled.a`
       color: #0079FF;
-    `;
+      font-size: small;
+    `
 
     const Creation = styled.p`
-      color: ${Props => Props.theme.tagLineColor};  
+      color: ${Props => Props.theme.tagLineColor}; 
+      font-size: small; 
+      margin-top: 5%;
+      transition: all 0.5s ease;
+    `
+
+    const Bios = styled.p`
+      color: ${Props => Props.theme.tagLineColor}; 
+      font-size: small; 
+      margin-top: 8%;
+    `
+
+    const Table = styled.table`
+      background-color: ${Props => Props.theme.pageBackground};
+      width: 100%;
+      border-radius: 10px;
+      text-align: center;
+      margin-top: 3%;
+      padding: 5%;
+      transition: all 0.5s ease;
+    `
+
+    const TableRow  = styled.tr`
+      line-height: 2em;
+    `
+
+    const TableCell = styled.td`
+      color: ${Props => Props.theme.tagLineColor};
+      font-size: small; 
+      transition: all 0.5s ease;
+    `
+
+    const TableHeader = styled.th`
+      color: ${Props => Props.theme.titleColor};
+      font-size: small; 
+      transition: all 0.5s ease;
+    `
+
+    const Wrapper2 = styled.div`
+      margin-top: 8%;
+      display: grid;
+      width: 100%;
+      height: auto;
+    `
+
+    const Loco = styled.img`
+      width: 15px;
+      height: 20px;
+      margin-top: 5%;
+    `
+
+    const LocoData = styled.p`
+      color: ${Props => Props.theme.tagLineColor};
+      font-size: small; 
+      transition: all 0.5s ease;
+    `
+
+    const Web = styled.img`
+      width: 18px;
+      height: 20px;
+      margin-top: 1%;
+    `
+
+    const WebData = styled.a`
+      color: ${Props => Props.theme.tagLineColor};
+      font-size: small; 
+      transition: all 0.5s ease;
+    ` 
+
+    const Twitter = styled.img`
+      width: 18px;
+      height: 20px;
+      margin-top: 3%;
+    `
+
+    const Tweet = styled.a`
+      color: ${Props => Props.theme.tagLineColor};
+      font-size: small; 
+      transition: all 0.5s ease;
+      margin-top: 3%;
+    `
+
+    const Company = styled.img`
+      width: 18px;
+      height: 20px;
+      margin-top: 3%;
+    `
+
+    const CompUrl = styled.a`
+      color: ${Props => Props.theme.tagLineColor};
+      font-size: small; 
+      transition: all 0.5s ease;
+      margin-top: 3%;
+    `
+
+    const DataControl = `
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+    `
+
+    const Location = styled.div`
+      ${DataControl}
+    `
+
+    const Website = styled.div`
+      ${DataControl}
+    `
+    const TwitterProfile = styled.div`
+      ${DataControl}
+    `
+    const CompanySite = styled.div`
+      ${DataControl}
     `
 
 function Data() {
     const [avatar, setAvatar] = useState('');
     const [name, setName] = useState('');
     const [userName, setUserName] = useState('');
-    const [createdBy, setCreatedBy] = useState('');
+    const [created, setCreation] = useState('');
+    const [logIn, setLogIn] = useState('');
     const [bio, setBio] = useState('');
     const [repos, setRepos] = useState('');
     const [followers, setFollowers] = useState('');
@@ -41,7 +221,8 @@ function Data() {
     const [twitter, setTwitter] = useState('');
     const [company, setCompany] = useState('');
     const [userInput, setUserInput] = useState('');
-    const [error, setError] = useState('null');
+    const [error, setError] = useState();
+    
   
     useEffect(() => {
       fetch("https://api.github.com/users/octocat")
@@ -50,11 +231,12 @@ function Data() {
               setData(data);
           });
     }, []);
-  
-    const setData = ( {
-       avatar_url, 
+
+      const setData = ( {
+       avatar_url,
+       html_url,
+       login,
        name, 
-       login, 
        created_at, 
        bio, 
        public_repos, 
@@ -64,12 +246,14 @@ function Data() {
        blog, 
        twitter_username, 
        company
+  
       
       } ) => {
        setAvatar(avatar_url);
        setName(name);
-       setUserName(login);
-       setCreatedBy(created_at);
+       setUserName(html_url);
+       setCreation(created_at);
+       setLogIn(login);
        setBio(bio);
        setRepos(public_repos);
        setFollowers(followers);
@@ -78,26 +262,103 @@ function Data() {
        setBlogUrl(blog);
        setTwitter(twitter_username);
        setCompany(company);
-  
        };
-  
-    return (
-      <Card>
-        <Wrapper1>
-          <Avatar src={avatar}/>
-          <Name>
-            {name}
-          </Name>
-          <User>
-            @{userName}
-          </User>
-          <Creation>
-            Joined {createdBy}
-          </Creation>
-        </Wrapper1>
-      </Card>
-  
+      
+      const createdDate = dayjs(created).format("DD MMM YYYY")
+
+      const handleSearch = (e) => {
+        setUserInput(e.target.value)
+      }
+      
+      const handleSubmit = (e) => {
+
+        e.preventDefault();
+        fetch(`https://api.github.com/users/${userInput}`)
+          .then(res => res.json())
+          .then(data => {
+              if (data.message) {
+                setError(data.message)
+              }
+              else {
+                setData(data);
+                setError(null);
+              }
+            })
+      };
+      
+      
+
+     return (
+      <Container>
+        <GitForm onSubmit={handleSubmit} >
+          <ButtonWrapper>
+            <SearchIcon src= {img1} />
+            <UserInput type='text' placeholder="Search GitHub username..." onChange={handleSearch} />
+            <Press>
+              Search
+            </Press>
+          </ButtonWrapper>
+          {error ? (<h1>{error}</h1>) : (
+          <Card>
+            <Wrapper1>
+              <Avatar src={avatar} />
+                <SmallWrap>
+                  <Name>
+                    {name ? `${name}` : `${logIn}`}
+                  </Name>
+                  <User href={userName}>
+                    @{logIn}
+                  </User>
+                  <Creation>
+                    {`Joined ${createdDate}`}
+                  </Creation>
+                </SmallWrap>
+              </Wrapper1>
+              <Bios style={bio ? { opacity: 1 } : { opacity: 0.75 }}>
+                {bio ? `${bio}` : `This profile has no bio.`}
+              </Bios>
+              <Table>
+              <TableRow>
+                  <TableCell>Repos</TableCell>
+                  <TableCell>Followers</TableCell>
+                  <TableCell>Following</TableCell>
+                </TableRow>
+                <TableRow>
+                  <TableHeader>{repos}</TableHeader>
+                  <TableHeader>{followers}</TableHeader>
+                  <TableHeader>{following}</TableHeader>
+                </TableRow>
+              </Table>
+              <Wrapper2>
+                <Location>
+                  <Loco src={loco} style={location ? { opacity: 1 } : { opacity: 0.75 }} href={location} />
+                  <LocoData style={location ? { opacity: 1 } : { opacity: 0.75 }} href={location}>
+                    {location ? `${location}` : `Not Available.`}
+                  </LocoData>
+                </Location>
+                <Website>
+                  <Web src={web} style={blog ? { opacity: 1 } : { opacity: 0.75 }} href={blog} />
+                  <WebData style={blog ? { opacity: 1 } : { opacity: 0.75 }} href={blog}>
+                    {blog ? `${blog}` : `Not Available.`}
+                  </WebData>
+                </Website>
+                <TwitterProfile>
+                  <Twitter src={twitterIcon} style={twitter ? { opacity: 1 } : { opacity: 0.75 }} href={twitter} />
+                  <Tweet style={twitter ? { opacity: 1 } : { opacity: 0.75 }} href={twitter}>
+                    {twitter ? `${twitter}` : `Not Available.`}
+                  </Tweet>
+                </TwitterProfile>
+                <CompanySite>
+                  <Company src={comp} style={company ? { opacity: 1 } : { opacity: 0.75 }} href={company} />
+                  <CompUrl style={company ? { opacity: 1 } : { opacity: 0.75 }} href={company}>
+                    {company ? `${company}` : `Not Available.`}
+                  </CompUrl>
+                </CompanySite>
+              </Wrapper2>
+          </Card>)}
+        </GitForm>
+      </Container>
     );
   }
 
-  export default Data;
+export default Data;

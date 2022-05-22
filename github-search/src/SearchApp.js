@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import Sun from "./images/icon-sun.svg";
 import Moon from "./images/icon-moon.svg";
-import Search from "./SearchButton";
 import Data from "./SearchData";
 import { createGlobalStyle } from 'styled-components';
+
 
     const GlobalStyle = createGlobalStyle`
       body {
@@ -19,6 +19,10 @@ import { createGlobalStyle } from 'styled-components';
         margin: 0 auto;
     `;
 
+    const Headers = styled.header`
+        display: flex;
+    `
+
     const Title = styled.h1`
         color: ${Props => Props.theme.titleColor};
         font-size: xx-large;
@@ -27,7 +31,7 @@ import { createGlobalStyle } from 'styled-components';
     `;
 
     const Toggle = styled.button`
-        margin-top: 8%;
+        margin-top: 10%;
         margin-left: 1%;
         cursor: pointer;
         border-radius: 50%;
@@ -45,8 +49,8 @@ import { createGlobalStyle } from 'styled-components';
         font-size: small;
         color: ${Props => Props.theme.titleColor};
         letter-spacing: 2px;
-        margin-top: 14%;
-        margin-left: 24%;
+        margin-top: 20%;
+        margin-left: 39%;
         transition: all 0.5s ease;
     `;
 
@@ -60,22 +64,24 @@ import { createGlobalStyle } from 'styled-components';
         };
 
     const icon = Props.theme === "light" ? <img src={Moon} /> : <img src={Sun} />;
+   
 
     return (
 
             <Container>
                 <GlobalStyle />
-                <Title>
-                    devfinder
-                </Title>
-                <Label>
-                    {Props.theme === "light" ? "DARK" : "LIGHT"}
-                </Label>
-                <Toggle onClick={changeTheme}>
-                    {icon}
-                </Toggle>
-                <Search />
-                <Data />
+                    <Headers>
+                        <Title>
+                            devfinder
+                        </Title>
+                        <Label>
+                            {Props.theme === "light" ? "DARK" : "LIGHT"}
+                        </Label>
+                        <Toggle onClick={changeTheme}>
+                            {icon}
+                        </Toggle>
+                    </Headers>
+                <Data  />
             </Container>
     );
 };
