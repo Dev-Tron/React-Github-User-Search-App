@@ -17,12 +17,16 @@ import twitterIcon from "./images/icon-twitter.svg";
       margin-top: 5%;
       border-radius: 10px;
       padding: 6% 6% 12% 6%;
+      box-shadow: 0 1.6rem 3rem -1rem rgba(0, 0, 0, 0.2);
+
+      @media (min-width: 1440px) {
+        padding: 5% 0 5% 5%;
+        }
     `
 
     const GitForm = styled.form`
-    
     `
-
+    
     const ButtonWrapper = styled.div`
       margin-top: 7%;
       background-color: ${Props => Props.theme.boxColor};
@@ -32,23 +36,34 @@ import twitterIcon from "./images/icon-twitter.svg";
       padding: 6px;
       justify-content: space-between;
       transition: all 0.5s ease;
+      box-shadow: 0 1.6rem 3rem -1rem rgba(0, 0, 0, 0.2);
+
+      @media (min-width: 768px) {
+            margin-top: 4%;
+        }
     `
 
     const UserInput = styled.input`
       flex: .9;
+      width: 100%;
       border: none;
-      background-color: ${Props => Props.theme.boxColor};
+      background-color: transparent;
+      resize: none;
+      outline: none;
       transition: all 0.5s ease;
-      ::placeholder,
-      ::-webkit-input-placeholder {
       color: ${Props => Props.theme.tagLineColor};
-      }
     `
 
      const SearchIcon = styled.img`
       width: 20px;
       height: auto;
       margin-left: 3%;
+    `
+
+    const ErrorMessage = styled.span`
+      margin-right: 5%;
+      color: #F74646;
+      font-weight: 600;
     `
 
     const Press = styled.button`
@@ -59,6 +74,22 @@ import twitterIcon from "./images/icon-twitter.svg";
       border-radius: 10px;
       color: white;
       border: none;
+      font-family: 'Space Mono', monospace;
+
+        &:hover {
+          background-color: #60ABFF;
+          transition: all 0.5s ease;
+        }
+
+        @media (min-width: 768px) {
+            width: 20%;
+            padding: 3% 1%;
+        }
+
+        @media (min-width: 1440px) {
+            padding: 2%;
+            width: 14%;
+        }
     `
     
     const Wrapper1 = styled.div`
@@ -66,9 +97,25 @@ import twitterIcon from "./images/icon-twitter.svg";
       gap: 5%;
     `
 
+    const OverWrap = styled.div`
+       @media (min-width: 1440px) {
+            display: flex;
+            flex-direction: column;
+            width: 65%;
+            margin-left: 25%;
+            margin-top: -12%;
+       }
+    `
+
     const SmallWrap = styled.div`
       display: flex;
       flex-direction: column;
+
+      @media (min-width: 1440px) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+        }
     `
 
     const Avatar = styled.img`
@@ -76,18 +123,41 @@ import twitterIcon from "./images/icon-twitter.svg";
       height: 18%;
       border-radius: 50%;
       margin: 5% 0 0 0;
+
+      @media (min-width: 1440px) {
+          margin: 0;
+          width: 20%;
+          height: auto;
+        }
     `
 
-    const Name = styled.h1`
+    const Name = styled.h2`
       font-size: large;
       color: ${Props => Props.theme.titleColor};
       transition: all 0.5s ease;
       margin-bottom: 0;
+
+      @media (min-width: 768px) {
+        font-size: xx-large;
+      }
+
+      @media (min-width: 1440px) {
+        margin-top: 0;
+      }
     `
 
     const User = styled.a`
       color: #0079FF;
       font-size: small;
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
+
+      @media (min-width: 1440px) {
+            order: 3;
+            margin-top: -20%;
+        }
     `
 
     const Creation = styled.p`
@@ -95,12 +165,24 @@ import twitterIcon from "./images/icon-twitter.svg";
       font-size: small; 
       margin-top: 5%;
       transition: all 0.5s ease;
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
+
+      @media (min-width: 1440px) {
+        order: 2;
+      }
     `
 
     const Bios = styled.p`
       color: ${Props => Props.theme.tagLineColor}; 
       font-size: small; 
       margin-top: 8%;
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
     `
 
     const Table = styled.table`
@@ -111,6 +193,10 @@ import twitterIcon from "./images/icon-twitter.svg";
       margin-top: 3%;
       padding: 5%;
       transition: all 0.5s ease;
+
+      @media (min-width: 768px) {
+        padding: 2%;
+      }
     `
 
     const TableRow  = styled.tr`
@@ -121,12 +207,20 @@ import twitterIcon from "./images/icon-twitter.svg";
       color: ${Props => Props.theme.tagLineColor};
       font-size: small; 
       transition: all 0.5s ease;
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
     `
 
     const TableHeader = styled.th`
       color: ${Props => Props.theme.titleColor};
       font-size: small; 
       transition: all 0.5s ease;
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
     `
 
     const Wrapper2 = styled.div`
@@ -134,31 +228,53 @@ import twitterIcon from "./images/icon-twitter.svg";
       display: grid;
       width: 100%;
       height: auto;
+
+      @media (min-width: 768px) {
+        grid-template-columns: 1fr 1fr;
+      }
     `
 
     const Loco = styled.img`
       width: 15px;
       height: 20px;
       margin-top: 5%;
+
+      @media (min-width: 768px) {
+        margin-top: 8%;
+      }
     `
 
     const LocoData = styled.p`
       color: ${Props => Props.theme.tagLineColor};
       font-size: small; 
       transition: all 0.5s ease;
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
     `
 
     const Web = styled.img`
       width: 18px;
       height: 20px;
       margin-top: 1%;
+      
     `
 
     const WebData = styled.a`
       color: ${Props => Props.theme.tagLineColor};
       font-size: small; 
       transition: all 0.5s ease;
-    ` 
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
+    `
 
     const Twitter = styled.img`
       width: 18px;
@@ -171,6 +287,10 @@ import twitterIcon from "./images/icon-twitter.svg";
       font-size: small; 
       transition: all 0.5s ease;
       margin-top: 3%;
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
     `
 
     const Company = styled.img`
@@ -184,6 +304,15 @@ import twitterIcon from "./images/icon-twitter.svg";
       font-size: small; 
       transition: all 0.5s ease;
       margin-top: 3%;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @media (min-width: 768px) {
+        font-size: large;
+      }
     `
 
     const DataControl = `
@@ -198,6 +327,10 @@ import twitterIcon from "./images/icon-twitter.svg";
 
     const Website = styled.div`
       ${DataControl}
+
+      @media (min-width: 768px) {
+        margin-top: 8%;
+      }
     `
     const TwitterProfile = styled.div`
       ${DataControl}
@@ -221,7 +354,7 @@ function Data() {
     const [twitter, setTwitter] = useState('');
     const [company, setCompany] = useState('');
     const [userInput, setUserInput] = useState('');
-    const [error, setError] = useState();
+    const [error, setError] = useState('');
     
   
     useEffect(() => {
@@ -271,7 +404,6 @@ function Data() {
       }
       
       const handleSubmit = (e) => {
-
         e.preventDefault();
         fetch(`https://api.github.com/users/${userInput}`)
           .then(res => res.json())
@@ -284,6 +416,7 @@ function Data() {
                 setError(null);
               }
             })
+            setUserInput("")
       };
       
       
@@ -292,13 +425,14 @@ function Data() {
       <Container>
         <GitForm onSubmit={handleSubmit} >
           <ButtonWrapper>
-            <SearchIcon src= {img1} />
-            <UserInput type='text' placeholder="Search GitHub username..." onChange={handleSearch} />
+            <SearchIcon src= {img1} alt="search-icon" />
+            <UserInput type='text' value={userInput} placeholder={error ? null : "Search Github username..."} onChange={handleSearch} />
+            {error ? <ErrorMessage>No results
+            </ErrorMessage> : null }
             <Press>
               Search
             </Press>
           </ButtonWrapper>
-          {error ? (<h1>{error}</h1>) : (
           <Card>
             <Wrapper1>
               <Avatar src={avatar} />
@@ -314,48 +448,50 @@ function Data() {
                   </Creation>
                 </SmallWrap>
               </Wrapper1>
-              <Bios style={bio ? { opacity: 1 } : { opacity: 0.75 }}>
-                {bio ? `${bio}` : `This profile has no bio.`}
-              </Bios>
-              <Table>
-              <TableRow>
-                  <TableCell>Repos</TableCell>
-                  <TableCell>Followers</TableCell>
-                  <TableCell>Following</TableCell>
-                </TableRow>
+              <OverWrap>
+                <Bios style={bio ? { opacity: 1 } : { opacity: 0.75 }}>
+                  {bio ? `${bio}` : `This profile has no bio.`}
+                </Bios>
+                <Table>
                 <TableRow>
-                  <TableHeader>{repos}</TableHeader>
-                  <TableHeader>{followers}</TableHeader>
-                  <TableHeader>{following}</TableHeader>
-                </TableRow>
-              </Table>
-              <Wrapper2>
-                <Location>
-                  <Loco src={loco} style={location ? { opacity: 1 } : { opacity: 0.75 }} href={location} />
-                  <LocoData style={location ? { opacity: 1 } : { opacity: 0.75 }} href={location}>
-                    {location ? `${location}` : `Not Available.`}
-                  </LocoData>
-                </Location>
-                <Website>
-                  <Web src={web} style={blog ? { opacity: 1 } : { opacity: 0.75 }} href={blog} />
-                  <WebData style={blog ? { opacity: 1 } : { opacity: 0.75 }} href={blog}>
-                    {blog ? `${blog}` : `Not Available.`}
-                  </WebData>
-                </Website>
-                <TwitterProfile>
-                  <Twitter src={twitterIcon} style={twitter ? { opacity: 1 } : { opacity: 0.75 }} href={twitter} />
-                  <Tweet style={twitter ? { opacity: 1 } : { opacity: 0.75 }} href={twitter}>
-                    {twitter ? `${twitter}` : `Not Available.`}
-                  </Tweet>
-                </TwitterProfile>
-                <CompanySite>
-                  <Company src={comp} style={company ? { opacity: 1 } : { opacity: 0.75 }} href={company} />
-                  <CompUrl style={company ? { opacity: 1 } : { opacity: 0.75 }} href={company}>
-                    {company ? `${company}` : `Not Available.`}
-                  </CompUrl>
-                </CompanySite>
-              </Wrapper2>
-          </Card>)}
+                    <TableCell>Repos</TableCell>
+                    <TableCell>Followers</TableCell>
+                    <TableCell>Following</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableHeader>{repos}</TableHeader>
+                    <TableHeader>{followers}</TableHeader>
+                    <TableHeader>{following}</TableHeader>
+                  </TableRow>
+                </Table>
+                <Wrapper2>
+                  <Location>
+                    <Loco src={loco} style={location ? { opacity: 1 } : { opacity: 0.75 }} href={location} alt="pin-point" />
+                    <LocoData style={location ? { opacity: 1 } : { opacity: 0.75 }} href={location}>
+                      {location ? `${location}` : `Not Available.`}
+                    </LocoData>
+                  </Location>
+                  <Website>
+                    <Web src={web} style={blog ? { opacity: 1 } : { opacity: 0.75 }} href={blog} alt="chain-link" />
+                    <WebData style={blog ? { opacity: 1 } : { opacity: 0.75 }} href={blog}>
+                      {blog ? `${blog}` : `Not Available.`}
+                    </WebData>
+                  </Website>
+                  <TwitterProfile>
+                    <Twitter src={twitterIcon} style={twitter ? { opacity: 1 } : { opacity: 0.75 }} href={twitter} alt="twitter-logo" />
+                    <Tweet style={twitter ? { opacity: 1 } : { opacity: 0.75 }} href={twitter}>
+                      {twitter ? `${twitter}` : `Not Available.`}
+                    </Tweet>
+                  </TwitterProfile>
+                  <CompanySite>
+                    <Company src={comp} style={company ? { opacity: 1 } : { opacity: 0.75 }} href={company} alt="building-icon" />
+                    <CompUrl style={company ? { opacity: 1 } : { opacity: 0.75 }} href={company}>
+                      {company ? `${company}` : `Not Available.`}
+                    </CompUrl>
+                  </CompanySite>
+                </Wrapper2>
+              </OverWrap>
+          </Card>
         </GitForm>
       </Container>
     );
