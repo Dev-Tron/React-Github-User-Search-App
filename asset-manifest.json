@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.js": "/React-Github-User-Search-App/static/js/main.29b04f01.js",
+    "main.js": "/React-Github-User-Search-App/static/js/main.ec6ad7ea.js",
     "static/media/icon-website.svg": "/React-Github-User-Search-App/static/media/icon-website.c77d1559dc6ae79cf906f1e71aab0f02.svg",
     "static/media/icon-company.svg": "/React-Github-User-Search-App/static/media/icon-company.01d6ff1aa4034f18cbf972b096a39988.svg",
     "index.html": "/React-Github-User-Search-App/index.html",
     "static/media/icon-twitter.svg": "/React-Github-User-Search-App/static/media/icon-twitter.80d8332e4faf7354abfa550b3fa95ff7.svg",
     "static/media/icon-search.svg": "/React-Github-User-Search-App/static/media/icon-search.0cc0c98424cc75d5e1dfbb9e3abb6785.svg",
     "static/media/icon-location.svg": "/React-Github-User-Search-App/static/media/icon-location.3f20570997a9feb7ad1dc9afd02af126.svg",
-    "main.29b04f01.js.map": "/React-Github-User-Search-App/static/js/main.29b04f01.js.map"
+    "main.ec6ad7ea.js.map": "/React-Github-User-Search-App/static/js/main.ec6ad7ea.js.map"
   },
   "entrypoints": [
-    "static/js/main.29b04f01.js"
+    "static/js/main.ec6ad7ea.js"
   ]
 }
