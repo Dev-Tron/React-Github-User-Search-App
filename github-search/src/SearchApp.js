@@ -24,8 +24,10 @@ import { createGlobalStyle } from 'styled-components';
         flex-wrap: wrap;
         margin: 0 auto;
     `
+    const Header = styled.header`
+    `
 
-    const Headers = styled.div`
+    const Wrap = styled.div`
         display: flex;
         justify-content: space-between;
         width: 100%;
@@ -87,15 +89,17 @@ import { createGlobalStyle } from 'styled-components';
 
             <Container>
                 <GlobalStyle />
-                    <Headers>
-                        <Title>
-                            devfinder
-                        </Title>
-                        <Toggle onClick={changeTheme}>
-                            {Props.theme === "light" ? "DARK" : "LIGHT"}
-                            {icon}
-                        </Toggle>
-                    </Headers>
+                    <Header>
+                        <Wrap>
+                            <Title>
+                                devfinder
+                            </Title>
+                            <Toggle onClick={changeTheme}>
+                                {Props.theme === "light" ? "DARK" : "LIGHT"}
+                                {icon}
+                            </Toggle>
+                        </Wrap>
+                    </Header>
                 <Data  />
             </Container>
     );

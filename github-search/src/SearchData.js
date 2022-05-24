@@ -423,16 +423,16 @@ function Data() {
 
      return (
       <Container>
-        <GitForm onSubmit={handleSubmit} >
-          <ButtonWrapper>
-            <SearchIcon src= {img1} alt="search-icon" />
-            <UserInput type='text' value={userInput} placeholder={error ? null : "Search Github username..."} onChange={handleSearch} />
-            {error ? <ErrorMessage>No results
-            </ErrorMessage> : null }
-            <Press>
-              Search
-            </Press>
-          </ButtonWrapper>
+          <GitForm onSubmit={handleSubmit} >
+            <ButtonWrapper>
+              <SearchIcon src= {img1} alt="search-icon" />
+              <UserInput type='text' value={userInput} placeholder={error ? null : "Search Github username..."} onChange={handleSearch} />
+              {error ? <ErrorMessage>No results
+              </ErrorMessage> : null }
+              <Press>
+                Search
+              </Press>
+            </ButtonWrapper>
           <Card>
             <Wrapper1>
               <Avatar src={avatar} />
