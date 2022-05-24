@@ -102,8 +102,8 @@ import twitterIcon from "./images/icon-twitter.svg";
             display: flex;
             flex-direction: column;
             width: 65%;
-            margin-left: 25%;
-            margin-top: -12%;
+            margin-left: 21%;
+            margin-top: -9%;
        }
     `
 
@@ -156,7 +156,7 @@ import twitterIcon from "./images/icon-twitter.svg";
 
       @media (min-width: 1440px) {
             order: 3;
-            margin-top: -20%;
+            margin-top: -15%;
         }
     `
 
