@@ -25,6 +25,7 @@ import { createGlobalStyle } from 'styled-components';
         margin: 0 auto;
     `
     const Header = styled.header`
+        width: 100%;
     `
 
     const Wrap = styled.div`
